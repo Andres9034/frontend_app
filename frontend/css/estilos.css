@@ -1,0 +1,195 @@
+/*
+ * estilos.css
+ * Para qué sirve: capa de PRESENTACIÓN visual. No tiene lógica ni llamadas
+ * a la API. Si mañana se cambia el diseño, el HTML y el JS siguen igual.
+ */
+
+:root {
+  --fondo: #f3efe6;
+  --papel: #fffdf8;
+  --tinta: #1f2a24;
+  --muted: #5c6b63;
+  --linea: #d9d0c0;
+  --acento: #2f6f4e;
+  --acento-oscuro: #24583d;
+  --peligro: #b42318;
+  --sombra: 0 10px 30px rgba(31, 42, 36, 0.08);
+  --radio: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top right, #e7f0e6, transparent 40%),
+    var(--fondo);
+  color: var(--tinta);
+}
+
+.cabecera,
+.contenedor,
+.pie {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.cabecera {
+  padding: 36px 0 12px;
+}
+
+.etiqueta {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e3eee6;
+  color: var(--acento-oscuro);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0 0 8px;
+}
+
+.subtitulo,
+.ayuda,
+.estado,
+.pie {
+  color: var(--muted);
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+  padding: 12px 0 40px;
+}
+
+.tarjeta {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+}
+
+input:focus {
+  outline: 2px solid #b7d4c4;
+  border-color: var(--acento);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.acciones,
+.encabezado-lista {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.boton {
+  border: 1px solid var(--linea);
+  background: #fff;
+  color: var(--tinta);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #f6f1e8;
+}
+
+.boton.primario {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: #fff;
+}
+
+.boton.primario:hover {
+  background: var(--acento-oscuro);
+}
+
+.boton.peligro {
+  color: var(--peligro);
+  border-color: #f0c7c3;
+}
+
+.tabla-envoltorio {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--linea);
+  font-size: 14px;
+}
+
+th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.estado.error {
+  color: var(--peligro);
+}
+
+.estado.ok {
+  color: var(--acento-oscuro);
+}
+
+.pie {
+  padding-bottom: 28px;
+  font-size: 13px;
+}
+
+@media (max-width: 860px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+}
